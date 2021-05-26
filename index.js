@@ -10,15 +10,13 @@ const client = new Client({
     port: 5432,
 });
 
-const dbres = client.connect();
+client.connect();
 
-app.get('/', (req, res) => {
-    console.log(dbres);
-    res.send('HOME PAGE');
-
+app.get('/  ', (req, res) => {
+    res.sendFile(__dirname + "home.html");
 });
 
-app.listen(3000, () => {
+app.listen(8080, () => {
     console.log(`HELLO`);
 });
 
